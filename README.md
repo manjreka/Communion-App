@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# CommunionHub React Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the Project
 
-## Available Scripts
+CommunionHub is a community-driven event listing platform where users can:
+- Discover upcoming events based on location, category, and date.
+- Filter events by category such as Religious, Social, or Charity.
+- Add new events through a form with an image upload feature.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+### Home Page
+- Displays a welcome message and app introduction.
+- Navigation bar with links to Home, Events, and About.
+- Hero section with a title, short description, and Call-to-Action button.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Event Listing Page
+- Displays a list of events including title, date, location, and description.
+- Users can filter events by category.
+- Simple form to add new events, including an image upload feature.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+- Frontend: React.js, Tailwind CSS
+- Backend & Database: Firebase Firestore
+- Image Upload: Firebase Storage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Use
 
-### `npm run build`
+1. Explore Events: Visit the event listing page to view all available events.
+2. Filter Events: Use the category filter to find relevant events.
+3. Add New Events: Click the "Add Event" button and fill out the form to create an event.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Ensure you have:
+- Node.js (v16+) installed
+- NPM or Yarn installed
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. Clone the repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```sh
+   git clone https://github.com/manjreka/Communion-App.git
+   cd Communion-App
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install dependencies:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```sh
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Create a Firebase configuration file:
 
-## Learn More
+   In the `src` directory, create a folder named `firebase`, then inside it, create a file named `config.js` and add the following code:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```js
+   import { initializeApp } from "firebase/app";
+   import { getFirestore } from "firebase/firestore";
+   import { getStorage } from "firebase/storage";
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   const firebaseConfig = {
+     apiKey: "your_firebase_api_key",
+     authDomain: "your_firebase_auth_domain",
+     projectId: "your_firebase_project_id",
+     storageBucket: "your_firebase_storage_bucket",
+     messagingSenderId: "your_firebase_messaging_sender_id",
+     appId: "your_firebase_app_id"
+   };
 
-### Code Splitting
+   const app = initializeApp(firebaseConfig);
+   export const db = getFirestore(app);
+   export const storage = getStorage(app);
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Start the development server:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```sh
+   npm start
+   ```
