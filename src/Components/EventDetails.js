@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { eventDetails } from "../Data/eventDetailsData";
 import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import { db } from "../Firebase/config";

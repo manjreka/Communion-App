@@ -1,5 +1,4 @@
 import React from "react";
-// import { events } from "../Data/sampleData";
 import EventCard from "./EventCard";
 import Header from "./Header";
 import { useEffect, useState } from "react";
